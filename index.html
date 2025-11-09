@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人主页｜游戏部门产品经理</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+  <!-- ECharts CDN (用户要求的来源) -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+  <style>
+    /* 仅做极少量的内联兜底，主体样式在 stylesheet.css */
+    html{scroll-behavior:smooth;}
+  </style>
+</head>
+<body>
+  <!-- 顶部导航（第1页顶部可见） -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- <div class="brand">PM • Portfolio</div> -->
+      <nav class="nav">
+        <a href="#ai-projects">AI项目</a>
+        <a href="#tech-background">技术背景</a>
+        <a href="#guide-articles">攻略专栏</a>
+        <a href="#contact">联系方式</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 第1页：左个人简介 + 右雷达图（浅色背景，深色文字/深色雷达） -->
+  <section id="intro" class="section light-bg first-screen">
+    <div class="container intro-grid">
+      <div class="intro-left">
+        <h1 class="title">王意</span></h1>
+        <p class="subtitle">约翰霍普金斯大学商业人工智能硕士</p>
+        <p class="intro-text">一名兼具计算机科学背景与产品开发&支持经验的游戏产品策划爱好者。
+        </p>
+        <ul class="bullets">
+          <li>擅长从海量用户反馈与系统日志中洞察核心问题，<br>将技术思维与用户体验深度融合</li>
+          <li>具备扎实的技术功底，能够与开发团队高效协作，<br>精准评估技术可行性</li>
+          <li>在技术支持工作中培养了敏锐的用户洞察力，<br>善于将玩家需求转化为优秀的产品设计</li>
+          <li>致力于通过数据驱动决策和技术创新，<br>打造既稳定可靠又充满乐趣的游戏体验</li>
+          <li>关键字：游戏体验、数据治理、大语言模型</li>
+        </ul>
+      </div>
+      <div class="intro-right">
+        <div id="radar" class="radar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第2页：AI 项目（深色背景，浅色文字） -->
+  <section id="ai-projects" class="section dark-bg">
+    <div class="container">
+      <h2 class="section-title">AI 项目</h2>
+      <div class="cards two">
+        <article class="card">
+          <h3>心理支持AI产品 (基于CBT的智能情绪陪伴) — 产品负责人</h3>
+          <p>
+            【用户洞察】结合线上问卷与访谈沉淀心理亚健康用户的典型倾诉路径，明确传统咨询在“日常记录->情绪复盘”链路上的断点，<br>
+            据此定义引导倾诉 -> 模式识别 -> 情绪反馈 -> 每周小结的完整产品路径。<br>
+            【数据准备】调研CBT/情绪识相关研究成果，清洗对话样本并构建适用于监督微调（SFT）的训练数据集。<br>
+            【技术方案】构建基于OpenAI API的对话pipeline；设计Prompt实现“情绪-认知-行为”三元组抽取；<br>
+            基于DeepSeek模型进行SFT，生成类心理咨询师反馈；用数据库+上下文记忆机制完成模式识别、自动总结、反馈建议等关键能力落地。<br>
+            【体验评估】制定准确率、召回率、幻觉率等评估指标，使用A/B test对比不同LLM、Prompt以及记忆策略的输出质量，<br>
+            完成模糊、矛盾、诱导输入等边界测试，提出RLHF微调、拓展RAG知识库的后续迭代方案。
+          </p>
+        </article>
+        <article class="card">
+          <h3>多模态电商产品检索模块 — 产品负责人 </h3>
+          <p>利用AWS服务与基于CLIP的Embedding实现进阶的商品检索功能，构建商品推荐pipeline。 <br>
+          【技术实现】在Amazon SageMaker Endpoint部署CLIP模型进行图文向量提取；构建OpenSearch KNN索引实现相似度检索；<br>
+          增设基于Lambda的API服务；设计包含图片上传的data pipeline；并使用Kaggle数据集进行模型评估测试。 <br>
+          【技术栈】AWS S3、AWS SageMaker、AWS OpenSearch、AWS Lambda、REST API、CLIP …
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第3页：技术背景（深色背景，浅色文字） -->
+  <section id="tech-background" class="section dark-bg">
+    <div class="container">
+      <h2 class="section-title">技术背景</h2>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>实习 1｜万翼科技有限公司 — AI产品经理（评估方向）</h3>
+            <p>负责万科易选房对话机器人的模型效果评估、提示词优化，推动机器人核心功能体验提升并在真实销售场景稳定上线</p>
+            <p>【用户场景洞察】基于业务日志分析新房推荐、贷款政策等高频咨询路径，剖析用户痛点需求，为RAG优化策略提供方向。</p>
+            <p>【评估体系设计】独立设计并实现5+维度模型评估体系（包括召回率、语义相似度、幻觉率、信息完整性、逻辑连贯性）构建自动化评测工具，为模型迭代优化提供明确的数据指引与决策依据。</p>
+            <p>【产品体验提升】参与RAG流程设计，通过提示词工程优化（任务定义、上下文提炼策略、多步推理链）解决推荐不精准、政策回答口径不一致等问题，使机器人业务准确率从65%提升至88%+，显著增强了产品在真实销售场景中的可靠性。</p>
+            <p>【测试与交付提升】结合业务日志与大语言模型生成构建500+高质量测试数据集，编写自动化测试脚本将单轮测试周期从3天缩短至2小时，显著提升模型迭代速度与上线质量。</p>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>实习 2｜微软（中国）股份有限公司 — 产品技术支持 </h3>
+            <p>【核心职责】外派至微软（中国）有限公司，服务亚太地区企业级客户，为Microsoft Teams产品提供音视频会议、协作与集成场景的专业支持，确保产品在企业办公环境中的稳定运行。</p>
+            <p>【价值贡献】独立处理并关闭60+复杂技术工单，通过复现与定位缺陷、梳理问题链路，使平均解决周期缩短约25%，区域客户满意度稳定在95%+，显著提升所服务区域客户的产品粘性与信任度。</p>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <h3>实习 3｜格力博（江苏）有限公司 — BI数据开发</h3>
+            <p>【BI开发】使用帆软（FineReport）开发并维护了涵盖采购、生产、仓储等环节的10+张BI报表与MES系统监控仪表板，实现对核心业务指标的可视化监控，为管理层决策提供直观的数据支持，将相关数据获取效率提升约70%。</p>
+            <p>【数据治理】对ERP中采购模块的数据进行系统性核查，从完整性、一致性等维度发现并推动修复数百条存在异常的采购记录，提升业务数据质量，为下游运营决策和自动化流程奠定基础。</p>
+            <p>【ETL流程设计】使用Kettle参与设计开发业务数据库 -> 数据仓库的日常ETL流程，稳定处理万级/日业务数据，为BI报表与运营分析提供可靠、规范化的数据底座。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第4页：攻略专栏（深色背景，浅色文字；文章卡片 + 阅读全文跳转） -->
+  <section id="guide-articles" class="section dark-bg">
+    <div class="container">
+      <h2 class="section-title">攻略专栏</h2>
+      <div class="cards three">
+        <article class="card">
+          <h3>上分心法：如何用数据反推决策</h3>
+          <p>从对局日志到行为特征抽取，搭建个人成长仪表盘的方法论。</p>
+          <a class="btn-outline" href="article-01.html" target="_blank" rel="noopener">阅读全文</a>
+        </article>
+        <article class="card">
+          <h3>电竟观赛体验的 5 个关键瞬间</h3>
+          <p>用“情绪峰值”刻画观赛曲线，设计关键时间点的交互与引导。</p>
+          <a class="btn-outline" href="article-02.html" target="_blank" rel="noopener">阅读全文</a>
+        </article>
+        <article class="card">
+          <h3>从零搭建 AIGC 内容工坊</h3>
+          <p>提示词工程到素材库检索的闭环与注意事项。</p>
+          <a class="btn-outline" href="article-03.html" target="_blank" rel="noopener">阅读全文</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第5页：联系方式（深色背景，但模块更小更紧凑） -->
+  <section id="contact" class="section dark-bg">
+    <div class="container contact-wrap">
+      <h2 class="section-title">联系方式</h2>
+      <div class="contact-card">
+        <div class="row">
+          <span class="label">邮箱</span>
+          <a href="mailto:Hlx0294@126.com" class="value">Hlx0294@126.com</a>
+        </div>
+        <div class="row">
+          <span class="label">手机</span>
+          <a href="tel:+8613775621700" class="value">+86 137-7562-1700</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 固定导航遮挡的锚点偏移
+    document.querySelectorAll("section").forEach(sec => {
+      sec.style.scrollMarginTop = "80px";
+    });
+
+    // 年份
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 雷达图（深色配色，适配浅色背景）
+    const radarEl = document.getElementById('radar');
+    const chart = echarts.init(radarEl);
+    const option = {
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'item' },
+      radar: {
+        center: ['50%', '52%'],
+        radius: '70%',
+        splitNumber: 5,
+        axisName: {
+          color: '#111', // 深色文字（第1页是浅色背景）
+          fontWeight: 600,
+          fontSize: 12
+        },
+        splitLine: { lineStyle: { color: 'rgba(0,0,0,0.25)' } },
+        splitArea: { areaStyle: { color: ['rgba(0,0,0,0.02)','rgba(0,0,0,0.05)'] } },
+        axisLine: { lineStyle: { color: 'rgba(0,0,0,0.35)' } },
+        indicator: [
+          { name: '产品洞察', max: 100 },
+          { name: '数据分析', max: 100 },
+          { name: '技术理解', max: 100 },
+          { name: '项目推进', max: 100 },
+          { name: '用户体验', max: 100 }
+        ]
+      },
+      series: [
+        {
+          type: 'radar',
+          symbol: 'circle',
+          symbolSize: 6,
+          areaStyle: {
+            color: 'rgba(20,20,20,0.35)' // 深色填充
+          },
+          lineStyle: {
+            width: 2,
+            color: '#111' // 深色描边
+          },
+          itemStyle: {
+            color: '#111'
+          },
+          data: [
+            {
+              value: [88, 85, 82, 90, 84],
+              name: '能力雷达'
+            }
+          ]
+        }
+      ]
+    };
+    chart.setOption(option);
+    window.addEventListener('resize', () => chart.resize());
+  </script>
+</body>
+</html>
